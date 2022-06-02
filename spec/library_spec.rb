@@ -63,37 +63,39 @@ RSpec.describe Library do
     harper_lee = Author.new({first_name: "Harper", last_name: "Lee"})
     mockingbird = harper_lee.write("To Kill a Mockingbird", "July 11, 1960")
 
-    xit "can't checkout nonexistent books" do
-      expect(dpl.checkout(mockingbird)).to be_false
-      expect(dpl.checkout(jane_eyre)).to be_false
+    it "can't checkout nonexistent books" do
+      expect(dpl.checkout(mockingbird)).to be(false)
+      expect(dpl.checkout(jane_eyre)).to be(false)
     end
 
-    xit "can checkout added author books" do
-      expect(dpl.checkout(jane_eyre)).to be_true
+    it "can checkout added author books" do
+      dpl.add_author(charlotte_bronte)
+      dpl.add_author(harper_lee)
+      expect(dpl.checkout(jane_eyre)).to be(true)
     end
 
-    xit "has checked out books array" do
+    it "has checked out books array" do
       expect(dpl.checked_out_books).to be_a(Array)
       expect(dpl.checked_out_books.first.title).to eq("Jane Eyre")
     end
 
-    xit "can't checkout currently checked out books" do
-      expect(dpl.checkout(jane_eyre)).to be_false
+    it "can't checkout currently checked out books" do
+      expect(dpl.checkout(jane_eyre)).to be(false)
     end
 
-    xit "can return a book" do
+    it "can return a book" do
       dpl.return(jane_eyre)
-      expect(checked_out_books).to eq([])
+      expect(dpl.checked_out_books).to eq([])
     end
 
-    xit "can hold multiple checked out books" do
-      expect(dpl.checkout(jane_eyre)).to be_true
-      expect(dpl.checkout(villette)).to be_true
+    it "can hold multiple checked out books" do
+      expect(dpl.checkout(jane_eyre)).to be(true)
+      expect(dpl.checkout(villette)).to be(true)
       expect(dpl.checked_out_books.length).to eq(2)
       expect(dpl.checked_out_books.last.title).to eq("Villette")
     end
 
-    xit "knows most popular book" do
+    it "knows most popular book" do
       dpl.checkout(mockingbird)
       dpl.return(mockingbird)
       dpl.checkout(mockingbird)
