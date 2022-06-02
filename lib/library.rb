@@ -1,3 +1,6 @@
+require_relative 'book'
+require_relative 'author'
+
 class Library
 
   attr_reader :name,
