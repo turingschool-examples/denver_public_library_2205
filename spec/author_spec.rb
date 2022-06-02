@@ -1,5 +1,4 @@
 require './lib/author'
-require './lib/book'
 
 RSpec.describe Author do
 
