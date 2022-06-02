@@ -25,4 +25,12 @@ RSpec.describe Book do
     expect(@book.publication_date).to eql("July 11, 1960")
   end
 
+  it 'has an author' do
+    expect(@book.author).to eql("Harper Lee")
+  end
+
+  it 'has a publication year' do
+    expect(@book.publication_year).to eql("1960")
+  end
+
 end
