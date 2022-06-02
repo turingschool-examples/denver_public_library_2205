@@ -8,4 +8,13 @@ class Book
     @publication_date = attributes[:publication_date]
   end
 
+  def author
+    @author_first_name.concat(" ", @author_last_name)
+  end
+
+  def publication_year
+    @publication_date.split.last
+  end
+
+
 end
