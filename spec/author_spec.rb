@@ -15,7 +15,7 @@ RSpec.describe Author do
     expect(charlotte_bronte.name).to eq("Charlotte Bronte")
   end
 
-  xit "has no books by default" do
+  it "has no books by default" do
     charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
 
     expect(charlotte_bronte.books).to eq([])
