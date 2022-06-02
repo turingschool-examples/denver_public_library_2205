@@ -9,7 +9,7 @@ RSpec.describe Author do
     expect(charlotte_bronte).to be_instance_of(Author)
   end
 
-  xit "has a name" do
+  it "has a name" do
     charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
 
     expect(charlotte_bronte.name).to eq("Charlotte Bronte")
