@@ -6,6 +6,7 @@ class Library
     @books = []
     @authors = []
     @checked_out_books = []
+    @archive_of_all_checked_out_books = []
   end
 
   def add_author(author)
@@ -25,10 +26,20 @@ class Library
   def checkout(book)
     if @books.include?(book) && !@checked_out_books.include?(book)
       @checked_out_books << book
+      @archive_of_all_checked_out_books << book
       return true
     else
       return false
     end
+  end
 
+  def return(book)
+    @checked_out_books.delete(book)
+  end
+
+  def most_popular_book
+    books = @archive_of_all_checked_out_books.tally
+    most_popular = books.max_by{|book, count| count}
+    most_popular[0]
   end
 end

@@ -108,7 +108,7 @@ RSpec.describe Library do
     expect(@dpl.checked_out_books).to eq([jane_eyre])
   end
 
-  xit 'cannot allow books to be checked out if it is already checked out' do
+  it 'cannot allow books to be checked out if it is already checked out' do
     charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
     jane_eyre = charlotte_bronte.write("Jane Eyre", "October 16, 1847")
     villette = charlotte_bronte.write("Villette", "1853")
@@ -124,7 +124,7 @@ RSpec.describe Library do
     expect(@dpl.checkout(jane_eyre)).to be false
   end
 
-  xit 'can return books' do
+  it 'can return books' do
     charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
     jane_eyre = charlotte_bronte.write("Jane Eyre", "October 16, 1847")
     villette = charlotte_bronte.write("Villette", "1853")
@@ -144,7 +144,7 @@ RSpec.describe Library do
     # expect(@dpl.checked_out_books).to eq([jane_eyre, villette]
   end
 
-  xit 'can tell you the most popular book' do
+  it 'can tell you the most popular book' do
     charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
     jane_eyre = charlotte_bronte.write("Jane Eyre", "October 16, 1847")
     villette = charlotte_bronte.write("Villette", "1853")
@@ -164,6 +164,6 @@ RSpec.describe Library do
     @dpl.return(mockingbird)
     @dpl.checkout(mockingbird)
 
-    expect(@dpl.most_popular_book).to eq([mockingbird])
+    expect(@dpl.most_popular_book).to eq(mockingbird)
   end
 end
