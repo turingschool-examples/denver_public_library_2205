@@ -58,7 +58,7 @@ RSpec.describe Library do
     expect(dpl.books).to eq([jane_eyre, professor, villette, mockingbird])
   end
 
-  xit "can give a publication time frame for Authors" do
+  it "can give a publication time frame for Authors" do
     dpl = Library.new("Denver Public Library")
 
     charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
