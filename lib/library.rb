@@ -20,4 +20,8 @@ class Library
     end: years[-1].to_s
     }
   end
+
+  def checkout(book)
+    
+  end
 end
