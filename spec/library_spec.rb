@@ -1,5 +1,6 @@
 require './lib/library'
 require './lib/author'
+require './lib/book'
 require 'pry'
 
 RSpec.describe Library do
@@ -9,25 +10,25 @@ RSpec.describe Library do
     expect(dpl).to be_instance_of(Library)
   end
 
-  xit "has a name" do
+  it "has a name" do
     dpl = Library.new("Denver Public Library")
 
     expect(dpl.name).to eq("Denver Public Library")
   end
 
-  xit "has no books by default" do
+  it "has no books by default" do
     dpl = Library.new("Denver Public Library")
 
     expect(dpl.books).to eq([])
   end
 
-  xit "has no authors by default" do
+  it "has no authors by default" do
     dpl = Library.new("Denver Public Library")
 
     expect(dpl.authors).to eq([])
   end
 
-  xit "can add authors" do
+  it "can add authors" do
     dpl = Library.new("Denver Public Library")
 
     charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
@@ -36,10 +37,11 @@ RSpec.describe Library do
     dpl.add_author(charlotte_bronte)
     dpl.add_author(harper_lee)
 
-    expect(dpl.authors).to eq([charlotte_bronte, jane_eyre])
+    expect(dpl.authors).to eq([charlotte_bronte, harper_lee])
+    expect(dpl.authors.count).to equal 2
   end
 
-  xit "can provide a list of all Books in the Library" do
+  it "can provide a list of all Books in the Library" do
     dpl = Library.new("Denver Public Library")
 
     charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
