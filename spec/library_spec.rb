@@ -20,4 +20,8 @@ RSpec.describe do
     expect(@dpl.books).to eq([])
   end
 
+  it 'has a collection of authors' do
+    expect(@dpl.authors).to eq([])
+  end
+
 end
