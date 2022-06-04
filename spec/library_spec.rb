@@ -73,6 +73,9 @@ RSpec.describe do
     expect(@dpl.checked_out_books).to eq([@jane_eyre])
     @dpl.return(@jane_eyre)
     expect(@dpl.checked_out_books).to eq([])
+    @dpl.checkout(@jane_eyre)
+    @dpl.checkout(@villette)
+    expect(@dpl.checkout(@villette)).to eq(false)
   end
 
 end

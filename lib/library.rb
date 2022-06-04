@@ -25,16 +25,18 @@ class Library
   end
 
   def checkout(item)
-    add_checkout_books(item)
-    @books.any? {|book| book == item}
+    @books.include?(item) ? add_checkout_books(item) : false
   end
 
   def add_checkout_books(item)
     @books.each {|book| book == item ? @checked_out_books << item : nil}
+    @books.each {|book| book == item ? @books.delete(item) : nil}
+    return true
   end
 
   def return(book)
     @checked_out_books.delete(book)
+    @books.prepend(book)
   end
 
 end
