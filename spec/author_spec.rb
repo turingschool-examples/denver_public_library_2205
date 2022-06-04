@@ -1,5 +1,6 @@
 require './lib/book'
 require './lib/author'
+require 'pry'
 
 RSpec.describe do
   before :each do
@@ -19,15 +20,20 @@ RSpec.describe do
   end
 
   it 'can write a book from within the author class' do
-    @jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
-    expect(@jane_eyre.class).to eq(Book)
+    jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
+    expect(jane_eyre.class).to eq(Book)
   end
 
   it 'can access the title' do
-    @jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
-    expect(@jane_eyre.title).to eq("Jane Eyre")
+    jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
+    expect(jane_eyre.title).to eq("Jane Eyre")
   end
 
-
+  it 'can access the title' do
+    jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
+    villette = @charlotte_bronte.write("Villette", "1853")
+    expect(@charlotte_bronte.books).to eq([jane_eyre, villette])
+    expect(@charlotte_bronte.books[0].class).to eq(Book)
+  end
 
 end

@@ -13,8 +13,9 @@ class Author
     book_info[:author_last_name] = @name.split[1]
     book_info[:title] = title
     book_info[:publication_date] = pub_date
-    # binding.pry
-    Book.new(book_info)
+    new_book = Book.new(book_info)
+    @books << new_book
+    new_book
   end
 
 end
