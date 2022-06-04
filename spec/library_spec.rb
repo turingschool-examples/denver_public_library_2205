@@ -36,6 +36,10 @@ RSpec.describe do
     expect(@dpl.authors).to eq([@charlotte_bronte, @harper_lee])
   end
 
-
+  it 'has can access books by the authors' do
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+    expect(@dpl.books).to eq([@jane_eyre, @professor, @villette, @mockingbird])
+  end
 
 end
