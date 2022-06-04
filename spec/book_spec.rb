@@ -13,8 +13,8 @@ RSpec.describe do
     expect(@book.title).to eq("To Kill a Mockingbird")
   end
 
-  xit "has an author" do
-
+  it "has an author" do
+    expect(@book.author).to eq("Harper Lee")
   end
 
   xit "has a publication year" do
