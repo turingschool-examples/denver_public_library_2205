@@ -31,7 +31,8 @@ RSpec.describe Author do
 
     @charlotte_bronte.add_books(jane_eyre)
     @charlotte_bronte.add_books(villette)
-    expect(@charlotte_bronte.books.size).to eq(2)
+    expect(@charlotte_bronte.books).to eq([jane_eyre, villette])
+    expect(@charlotte_bronte.books.first.publication_year).to eq("1847")
     expect(@charlotte_bronte.books.last.title).to eq("Villette")
   end
 end
