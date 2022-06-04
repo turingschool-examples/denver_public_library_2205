@@ -29,7 +29,7 @@ RSpec.describe do
     expect(jane_eyre.title).to eq("Jane Eyre")
   end
 
-  it 'can access the title' do
+  it 'can add books to the books array' do
     jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
     villette = @charlotte_bronte.write("Villette", "1853")
     expect(@charlotte_bronte.books).to eq([jane_eyre, villette])
