@@ -51,6 +51,13 @@ RSpec.describe do
 
   it 'can checkout books' do
     expect(@dpl.checkout(@jane_eyre)).to eq(false)
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+    expect(@dpl.checkout(@jane_eyre)).to eq(true)
+  end
+
+  it 'can show checked out books' do
+    expect(@dpl.checked_out_books).to eq([])
   end
 
 end
