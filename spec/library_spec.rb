@@ -16,4 +16,8 @@ RSpec.describe do
     expect(@dpl.name).to eq("Denver Public Library")
   end
 
+  it 'has a collection of books' do
+    expect(@dpl.books).to eq([])
+  end
+
 end
