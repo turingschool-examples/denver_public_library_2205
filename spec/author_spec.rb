@@ -15,7 +15,7 @@ RSpec.describe do
     expect(@charlotte_bronte.name).to eq("Charlotte Bronte")
   end
 
-  xit 'has an array of books by that author' do
+  it 'has an array of books by that author' do
     expect(@charlotte_bronte.books).to eq([])
   end
 
