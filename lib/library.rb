@@ -23,4 +23,8 @@ class Library
     }
   end
 
+  def checkout(item)
+    @books.any? {|book| book ==  item}
+  end
+
 end
