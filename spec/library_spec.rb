@@ -65,4 +65,14 @@ RSpec.describe do
     expect(@dpl.checked_out_books).to eq([@jane_eyre, @villette])
   end
 
+  it 'can return books' do
+    expect(@dpl.checked_out_books).to eq([])
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+    @dpl.checkout(@jane_eyre)
+    expect(@dpl.checked_out_books).to eq([@jane_eyre])
+    @dpl.return(@jane_eyre)
+    expect(@dpl.checked_out_books).to eq([])
+  end
+
 end

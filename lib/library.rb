@@ -30,11 +30,11 @@ class Library
   end
 
   def add_checkout_books(item)
-    @books.each do |book|
-      if book == item
-        @checked_out_books << item
-      end
-    end
+    @books.each {|book| book == item ? @checked_out_books << item : nil}
+  end
+
+  def return(book)
+    @checked_out_books.delete(book)
   end
 
 end
