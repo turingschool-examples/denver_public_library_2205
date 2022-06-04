@@ -1,10 +1,11 @@
 class Library
 
-  attr_reader :name, :books, :authors
+  attr_reader :name, :books, :authors, :checked_out
   def initialize(name)
     @name = name
     @books = []
     @authors = []
+    @checked_out = []
   end
 
   def add_author(author)
@@ -18,5 +19,11 @@ class Library
       start: career.first.to_s,
       end: career.last.to_s
     }
+  end
+
+  def checkout(book)
+    return true if @books.include?(book) # && !checked_out.include?(book)
+    @checked_out << book
+    false
   end
 end

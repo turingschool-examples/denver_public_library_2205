@@ -33,9 +33,10 @@ RSpec.describe Library do
     expected = @dpl.authors.first.books[0]
 
     expect(@dpl.authors).to eq([@charlotte_bronte, @harper_lee])
+    expect(@dpl.books).to eq([@jane_eyre, @professor, @villette, @mockingbird])
     expect(expected).to eq(@jane_eyre)
     expect(expected.title).to eq("Jane Eyre")
-    expect(@dpl.books).to eq([@jane_eyre, @professor, @villette, @mockingbird])
+    expect(@dpl.books.last.publication_year).to eq("1960")
   end
 
   it 'gives a publication_time_frame_for an author' do
@@ -54,4 +55,36 @@ RSpec.describe Library do
     expect(@dpl.publication_time_frame_for(@harper_lee)).to eq(expected_2)
   end
 
+  it 'can checkout books' do
+    @dpl.checkout(@mockingbird)
+    @dpl.checkout(@jane_eyre)
+    expect(@dpl.checkout(@mockingbird)).to eq(false)
+    expect(@dpl.checkout(@jane_eyre)).to eq(false)
+
+    @charlotte_bronte.add_books(@jane_eyre)
+    @charlotte_bronte.add_books(@professor)
+    @charlotte_bronte.add_books(@villette)
+    @harper_lee.add_books(@mockingbird)
+
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+
+    expect(@dpl.checkout(@mockingbird)).to eq(true)
+    expect(@dpl.checkout(@jane_eyre)).to eq(true)
+  end
+
+  xit 'can return false if already checked out' do
+    @charlotte_bronte.add_books(@jane_eyre)
+    @charlotte_bronte.add_books(@professor)
+    @charlotte_bronte.add_books(@villette)
+    @harper_lee.add_books(@mockingbird)
+
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+    @dpl.checkout(@mockingbird)
+    @dpl.checkout(@jane_eyre)
+
+    expect(@dpl.checkout(@mockingbird)).to eq(false)
+    expect(@dpl.checkout(@jane_eyre)).to eq(false)
+  end
 end
