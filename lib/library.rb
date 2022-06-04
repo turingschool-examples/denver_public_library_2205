@@ -25,7 +25,16 @@ class Library
   end
 
   def checkout(item)
-    @books.any? {|book| book ==  item}
+    add_checkout_books(item)
+    @books.any? {|book| book == item}
+  end
+
+  def add_checkout_books(item)
+    @books.each do |book|
+      if book == item
+        @checked_out_books << item
+      end
+    end
   end
 
 end
