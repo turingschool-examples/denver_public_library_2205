@@ -4,7 +4,6 @@ require './lib/author'
 RSpec.describe do
   before :each do
     @charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
-    @jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
   end
 
   it 'is an instance of' do
@@ -20,10 +19,12 @@ RSpec.describe do
   end
 
   it 'can write a book from within the author class' do
+    @jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
     expect(@jane_eyre.class).to eq(Book)
   end
 
-  xit 'can access the title' do
+  it 'can access the title' do
+    @jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
     expect(@jane_eyre.title).to eq("Jane Eyre")
   end
 
