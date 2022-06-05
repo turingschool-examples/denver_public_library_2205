@@ -83,7 +83,6 @@ RSpec.describe Library do
       @dpl.checkout(@villette)
 
       expect(@dpl.most_popular_book).to eq(@jane_eyre)
-
     end
   end
 end
