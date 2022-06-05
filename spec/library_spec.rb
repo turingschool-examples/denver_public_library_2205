@@ -91,4 +91,24 @@ RSpec.describe Library do
       expect(@dpl.checked_out_books).to eq []
     end
   end
+
+  describe '#most_popular_book' do
+    it 'can return the most popular book based on times_checked_out' do
+      @dpl.add_author(@harper_lee)
+      @dpl.add_author(@charlotte_bronte)
+
+      3.times {
+        @dpl.checkout(@mockingbird)
+        @dpl.return(@mockingbird)
+      }
+      2.times {
+        @dpl.checkout(@jane_eyre)
+        @dpl.return(@jane_eyre)
+      }
+
+      expect(@dpl.most_popular_book).to eq @mockingbird
+      expect(@dpl.most_popular_book.times_checked_out).to eq 3
+      expect(@jane_eyre.times_checked_out).to eq 2
+    end
+  end
 end
