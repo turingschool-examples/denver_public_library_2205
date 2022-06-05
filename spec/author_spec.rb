@@ -21,4 +21,12 @@ RSpec.describe Author do
     end
   end
 
+  describe '#write' do
+    it 'can create a Book object' do
+      jane_eyre = @charlotte_bronte.write('Jane Eyre', 'October 16, 1847')
+      expect(jane_eyre).to be_a Book
+      expect(jane_eyre.title).to eq 'Jane Eyre'
+    end
+  end
+
 end
