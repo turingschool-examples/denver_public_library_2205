@@ -29,9 +29,7 @@ class Library
   end
 
   def checkout(book)
-    if @books.include?(book) == false
-      return false
-    end
+    @books.include?(book)
   end
 
 end
