@@ -110,4 +110,30 @@ RSpec.describe Library do
     expect(@dpl.checked_out_books.length).to eq(0)
   end
 
+  it 'returns most popular book' do
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+
+    @dpl.checkout(@jane_eyre)
+
+    @dpl.return(@jane_eyre)
+
+    @dpl.checkout(@jane_eyre)
+
+    @dpl.checkout(@villette)
+
+    @dpl.checkout(@mockingbird)
+
+    @dpl.return(@mockingbird)
+
+    @dpl.checkout(@mockingbird)
+
+    @dpl.return(@mockingbird)
+
+    @dpl.checkout(@mockingbird)
+
+    expect(@dpl.most_popular_book.title).to eq("To Kill a Mockingbird")
+
+  end
+
 end
