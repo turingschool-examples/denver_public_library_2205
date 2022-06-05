@@ -43,9 +43,7 @@ RSpec.describe Author do
     jane_eyre = charlotte_bronte.write("Jane Eyre", "October 16, 1847")
     villette = charlotte_bronte.write("Villette", "1853")
 
-    charlotte_bronte.add_book(jane_eyre)
-    charlotte_bronte.add_book(villette)
-
+    expect(villette).to be_instance_of Book
     expect(charlotte_bronte.books).to eq([jane_eyre, villette])
   end
 
