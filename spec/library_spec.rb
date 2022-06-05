@@ -88,4 +88,13 @@ RSpec.describe Library do
     expect(@dpl.checked_out_books.length).to eq(1)
   end
 
+  it 'returns false when checking out a book that is already checked out' do
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+
+    @dpl.checkout(@jane_eyre)
+
+    expect(@dpl.checkout(@jane_eyre)).to be false
+  end
+
 end
