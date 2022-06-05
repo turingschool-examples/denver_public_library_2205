@@ -30,13 +30,16 @@ class Library
   end
 
   def checkout(book)
-    if !@books.include?(book)
-      false
-    elsif @checked_out_books.include?(book)
-      false
+    return false if !@books.include?(book) || @checked_out_books.include?(book)
+    @checked_out_books << book
+    true
+  end
+
+  def return(book)
+    if @books.include?(book)
+      @checked_out_books.delete(book)
     else
-      @checked_out_books << book
-      true
+      "The library doesn't have that book."
     end
   end
 end
