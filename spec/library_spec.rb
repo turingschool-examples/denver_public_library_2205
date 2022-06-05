@@ -77,4 +77,15 @@ RSpec.describe Library do
     expect(@dpl.checkout(@jane_eyre)).to be true
   end
 
+  it 'returns array of checked out books' do
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+
+    @dpl.checkout(@jane_eyre)
+
+    expect(@dpl.checked_out_books).to be_instance_of(Array)
+
+    expect(@dpl.checked_out_books.length).to eq(1)
+  end
+
 end
