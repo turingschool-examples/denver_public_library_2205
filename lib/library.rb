@@ -17,7 +17,7 @@ class Library
   def add_author(author)
     @authors << author
     author.books.each do |book|
-      @checkout_frequency[book] = 0
+      @checkout_frequency[book]
       @books << book
     end
   end
