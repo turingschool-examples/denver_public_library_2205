@@ -1,6 +1,7 @@
 class Author
-  attr_reader :first_name
-              :last_name
+  attr_reader :first_name,
+              :last_name,
+              :books
 
   def initialize(info)
     @name = "#{info[:first_name]} #{info[:last_name]}"
@@ -11,13 +12,12 @@ class Author
     @name
   end
 
-  def books
-    @books
-  end
-
   def write(title, date)
-    require "pry"; binding.pry
-
-    @books.push(title, date)
+    new_book = Book.new({
+      author_first_name: @name.split.first, author_last_name: @name.split.last,
+      title: title,
+      publication_date: date})
+      @books << new_book
+      new_book
   end
 end
