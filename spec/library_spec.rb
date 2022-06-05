@@ -28,6 +28,10 @@ RSpec.describe Library do
     it 'has an empty array of authors' do
       expect(@dpl.authors).to eq []
     end
+
+    it 'has an empty array of checked_out_books' do
+      expect(@dpl.checked_out_books).to eq []
+    end
   end
 
   describe '#add_author' do
@@ -51,6 +55,30 @@ RSpec.describe Library do
       expect(@dpl.publication_time_frame_for(@charlotte_bronte)).to eq ({:start => "1847", :end => "1857"})
 
       expect(@dpl.publication_time_frame_for(@harper_lee)).to eq ({:start => "1960", :end => "1960"})
+    end
+  end
+
+  describe '#checkout' do
+    it 'returns false if a book is not in the array' do
+      expect(@dpl.checkout(@mockingbird)).to eq false
+    end
+
+    it 'returns true if a book is in the books array' do
+      @dpl.add_author(@harper_lee)
+      expect(@dpl.checkout(@mockingbird)).to eq true
+    end
+
+    it 'adds the book to checked_out_books' do
+      @dpl.add_author(@harper_lee)
+      expect(@dpl.checkout(@mockingbird)).to eq true
+      expect(@dpl.checked_out_books).to eq [@mockingbird]
+    end
+
+    it 'returns false if a book is already checked out' do
+      @dpl.add_author(@harper_lee)
+      expect(@dpl.checkout(@mockingbird)).to eq true
+      expect(@dpl.checked_out_books).to eq [@mockingbird]
+      expect(@dpl.checkout(@mockingbird)).to eq false
     end
   end
 end

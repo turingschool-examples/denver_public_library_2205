@@ -2,12 +2,13 @@ require './lib/book'
 require './lib/author'
 
 class Library
-  attr_reader :name, :books, :authors
+  attr_reader :name, :books, :authors, :checked_out_books
 
   def initialize(name)
     @name = name
     @books = []
     @authors = []
+    @checked_out_books = []
   end
 
   def add_author(author)
@@ -26,5 +27,16 @@ class Library
     start_year = publishing_years.sort.first
     end_year = publishing_years.sort.last
     output_hash = {:start => start_year.to_s, :end => end_year.to_s}
+  end
+
+  def checkout(book)
+    if !@books.include?(book)
+      false
+    elsif @checked_out_books.include?(book)
+      false
+    else
+      @checked_out_books << book
+      true
+    end
   end
 end
