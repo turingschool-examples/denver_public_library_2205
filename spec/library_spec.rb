@@ -81,4 +81,14 @@ RSpec.describe Library do
       expect(@dpl.checkout(@mockingbird)).to eq false
     end
   end
+
+  describe '#return' do
+    it 'removes the book passed in from checked_out_books' do
+      @dpl.add_author(@harper_lee)
+      @dpl.checkout(@mockingbird)
+      expect(@dpl.checked_out_books).to eq [@mockingbird]
+      @dpl.return(@mockingbird)
+      expect(@dpl.checked_out_books).to eq []
+    end
+  end
 end
