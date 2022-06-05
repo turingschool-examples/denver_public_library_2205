@@ -21,5 +21,9 @@ RSpec.describe Book do
     it 'has a publication_year' do
       expect(@book.publication_year).to eq '1960'
     end
+
+    it 'starts with being checked out 0 times' do
+      expect(@book.times_checked_out).to eq 0
+    end
   end
 end
