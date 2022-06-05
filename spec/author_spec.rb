@@ -19,4 +19,8 @@ RSpec.describe Author do
     expect(@charlotte_bronte.name).to eq("Charlotte Bronte")
   end
 
+  it 'initializes with empty array of books' do
+    expect(@charlotte_bronte.books).to eq([])
+  end
+
 end
