@@ -3,18 +3,21 @@ class Library
   attr_reader :name,
               :books,
               :authors,
-              :checked_out_books
+              :checked_out_books,
+              :checkout_frequency
 
   def initialize(name)
     @name = name
     @books = []
     @authors = []
     @checked_out_books = []
+    @checkout_frequency = Hash.new(0)
   end
 
   def add_author(author)
     @authors << author
     author.books.each do |book|
+      @checkout_frequency[book] = 0
       @books << book
     end
   end
@@ -36,15 +39,21 @@ class Library
     end
 
     if @books.include?(book)
+      @checkout_frequency[book] += 1
       @checked_out_books << book
       return true
     else
       return false
     end
+
   end
 
   def return(book)
     @checked_out_books.delete(book)
+  end
+
+  def most_popular_book
+    @checkout_frequency.max_by {|k,v| v}[0]
   end
 
 end
