@@ -34,14 +34,17 @@ class Library
     if @checked_out_books.include?(book)
       return false
     end
-    
+
     if @books.include?(book)
       @checked_out_books << book
       return true
     else
       return false
     end
+  end
 
+  def return(book)
+    @checked_out_books.delete(book)
   end
 
 end
