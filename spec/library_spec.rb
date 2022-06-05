@@ -97,4 +97,17 @@ RSpec.describe Library do
     expect(@dpl.checkout(@jane_eyre)).to be false
   end
 
+  it 'can return a book' do
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+
+    @dpl.checkout(@jane_eyre)
+
+    expect(@dpl.checked_out_books.length).to eq(1)
+
+    @dpl.return(@jane_eyre)
+
+    expect(@dpl.checked_out_books.length).to eq(0)
+  end
+
 end
