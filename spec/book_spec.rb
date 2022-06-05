@@ -3,14 +3,20 @@ require './lib/book'
 
 RSpec.describe Book do
 
-  it 'exists' do
-    book = Book.new({
+  before :each do
+    @book = Book.new({
       author_first_name: "Harper",
       author_last_name: "Lee",
       title: "To Kill a Mockingbird",
       publication_date: "July 11, 1960"})
+  end
 
-    expect(book).to be_instance_of(Book)
+  it 'exists' do
+    expect(@book).to be_instance_of(Book)
+  end
+
+  it 'returns book title' do
+    expect(@book.title).to eq("To Kill A Mockingbird")
   end
 
 end
