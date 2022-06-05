@@ -45,4 +45,45 @@ RSpec.describe Library do
       expect(@dpl.publication_time_frame_for(@harper_lee)).to eq({ start: '1960', end: '1960' })
     end
   end
+
+  describe 'Iteration 4' do
+    it 'can checkout books' do
+      @dpl.add_author(@charlotte_bronte)
+      expect(@dpl.checkout(@jane_eyre)).to be(true)
+      expect(@dpl.checkout(@jane_eyre)).to be(false)
+      expect(@dpl.checkout(@mockingbird)).to be(false)
+    end
+
+    it 'knows what books have been checkout out' do
+      @dpl.add_author(@charlotte_bronte)
+
+      expect(@dpl.checked_out_books).to eq([])
+
+      @dpl.checkout(@jane_eyre)
+
+      expect(@dpl.checked_out_books).to eq([@jane_eyre])
+    end
+
+    it 'can return books' do
+      @dpl.add_author(@charlotte_bronte)
+      @dpl.checkout(@jane_eyre)
+
+      expect(@dpl.checked_out_books).to eq([@jane_eyre])
+
+      @dpl.return(@jane_eyre)
+
+      expect(@dpl.checked_out_books).to eq([])
+    end
+
+    it 'knows what the most popular book is' do
+      @dpl.add_author(@charlotte_bronte)
+      @dpl.checkout(@jane_eyre)
+      @dpl.return(@jane_eyre)
+      @dpl.checkout(@jane_eyre)
+      @dpl.checkout(@villette)
+
+      expect(@dpl.most_popular_book).to eq(@jane_eyre)
+
+    end
+  end
 end
