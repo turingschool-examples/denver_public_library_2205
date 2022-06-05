@@ -39,11 +39,18 @@ RSpec.describe Library do
 
   it 'can add authors' do
     @dpl.add_author(@charlotte_bronte)
-
     @dpl.add_author(@harper_lee)
 
     expect(@dpl.authors).to be_instance_of(Array)
     expect(@dpl.authors.length).to eq(2)
+  end
+
+  it 'adds books by author' do
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+
+    expect(@dpl.books).to be_instance_of(Array)
+    expect(@dpl.books.length).to eq(4)
   end
 
 end
