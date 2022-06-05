@@ -30,11 +30,20 @@ RSpec.describe Library do
   end
 
   it 'initializes with empty array of books' do
-    expect(@dpl.books).to eq([])
+    expect(@dpl.books).to be_instance_of(Array)
   end
 
   it 'initializes with empty array of authors' do
-    expect(@dpl.authors).to eq([])
+    expect(@dpl.authors).to be_instance_of(Array)
+  end
+
+  it 'can add authors' do
+    @dpl.add_author(@charlotte_bronte)
+
+    @dpl.add_author(@harper_lee)
+
+    expect(@dpl.authors).to be_instance_of(Array)
+    expect(@dpl.authors.length).to eq(2)
   end
 
 end
