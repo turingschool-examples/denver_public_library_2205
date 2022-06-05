@@ -31,12 +31,17 @@ class Library
   end
 
   def checkout(book)
+    if @checked_out_books.include?(book)
+      return false
+    end
+    
     if @books.include?(book)
       @checked_out_books << book
       return true
     else
       return false
     end
+
   end
 
 end
