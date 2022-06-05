@@ -30,4 +30,12 @@ RSpec.describe Author do
     expect(jane_eyre.title).to eq("Jane Eyre")
   end
 
+  it 'can return array of books by author' do
+    jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
+    villette = @charlotte_bronte.write("Villette", "1853")
+
+    expect(@charlotte_bronte.books.class).to eq(Array)
+    expect(@charlotte_bronte.books.length).to eq(2)
+  end
+
 end
