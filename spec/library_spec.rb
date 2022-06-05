@@ -53,4 +53,16 @@ RSpec.describe Library do
     expect(@dpl.books.length).to eq(4)
   end
 
+  it 'returns publication time frame for given author' do
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+
+    expect(@dpl.publication_time_frame_for(@charlotte_bronte)).to be_instance_of(Hash)
+
+    expect(@dpl.publication_time_frame_for(@charlotte_bronte)).to eq({:start=>"1847", :end=>"1857"})
+
+    expect(@dpl.publication_time_frame_for(@harper_lee)).to eq({:start=>"1960", :end=>"1960"})
+  end
+
+
 end
