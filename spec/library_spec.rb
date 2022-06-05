@@ -18,7 +18,7 @@ RSpec.describe Library do
 
     @harper_lee = Author.new({first_name: "Harper", last_name: "Lee"})
 
-    mockingbird = @harper_lee.write("To Kill a Mockingbird", "July 11, 1960")
+    @mockingbird = @harper_lee.write("To Kill a Mockingbird", "July 11, 1960")
   end
 
   it 'exists' do
@@ -62,6 +62,10 @@ RSpec.describe Library do
     expect(@dpl.publication_time_frame_for(@charlotte_bronte)).to eq({:start=>"1847", :end=>"1857"})
 
     expect(@dpl.publication_time_frame_for(@harper_lee)).to eq({:start=>"1960", :end=>"1960"})
+  end
+
+  it 'can check out a book' do
+    expect(@dpl.checkout(@mockingbird)).to be False
   end
 
 
