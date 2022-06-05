@@ -16,4 +16,8 @@ class Book
     "#{@author_first_name} #{@author_last_name}"
   end
 
+  def publication_year
+    @publication_date[-4,4]
+  end
+
 end
