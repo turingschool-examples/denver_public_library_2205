@@ -64,9 +64,17 @@ RSpec.describe Library do
     expect(@dpl.publication_time_frame_for(@harper_lee)).to eq({:start=>"1960", :end=>"1960"})
   end
 
-  it 'can check out a book' do
+  it 'returns false on checkout if book does not exist in library' do
     expect(@dpl.checkout(@mockingbird)).to be false
+
+    expect(@dpl.checkout(@jane_eyre)).to be false
   end
 
+  it 'returns true on checkout if book exists in library' do
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+
+    expect(@dpl.checkout(@jane_eyre)).to be true
+  end
 
 end
