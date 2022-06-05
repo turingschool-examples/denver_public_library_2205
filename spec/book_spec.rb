@@ -19,4 +19,8 @@ RSpec.describe Book do
     expect(@book.title).to eq("To Kill a Mockingbird")
   end
 
+  it 'returns author' do
+    expect(@book.author).to eq("Harper Lee")
+  end
+
 end
