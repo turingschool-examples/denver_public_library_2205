@@ -32,6 +32,7 @@ class Library
   def checkout(book)
     return false if !@books.include?(book) || @checked_out_books.include?(book)
     @checked_out_books << book
+    book.times_checked_out += 1
     true
   end
 
@@ -40,6 +41,12 @@ class Library
       @checked_out_books.delete(book)
     else
       "The library doesn't have that book."
+    end
+  end
+
+  def most_popular_book
+    @books.max_by do |book|
+      book.times_checked_out
     end
   end
 end
