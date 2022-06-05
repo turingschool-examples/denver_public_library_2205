@@ -13,4 +13,8 @@ RSpec.describe Library do
     expect(@dpl).to be_instance_of(Library)
   end
 
+  it 'returns name' do
+    expect(@dpl.name).to eq("Denver Public Library")
+  end
+
 end
