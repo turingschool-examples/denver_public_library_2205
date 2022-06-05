@@ -23,4 +23,8 @@ RSpec.describe Book do
     expect(@book.author).to eq("Harper Lee")
   end
 
+  it 'returns publication year' do
+    expect(@book.publication_year).to eq("1960")
+  end
+
 end
