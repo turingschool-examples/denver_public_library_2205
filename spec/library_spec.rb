@@ -21,4 +21,8 @@ RSpec.describe Library do
     expect(@dpl.books).to eq([])
   end
 
+  it 'initializes with empty array of authors' do
+    expect(@dpl.authors).to eq([])
+  end
+
 end
