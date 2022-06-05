@@ -65,7 +65,7 @@ RSpec.describe Library do
   end
 
   it 'can check out a book' do
-    expect(@dpl.checkout(@mockingbird)).to be False
+    expect(@dpl.checkout(@mockingbird)).to be false
   end
 
 
