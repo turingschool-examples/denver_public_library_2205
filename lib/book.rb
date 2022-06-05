@@ -13,5 +13,5 @@ class Book
   def publication_year
     @publication_year
   end
-
+  #this doesn't feel right. It passes, and i figured that it would define it if I pulled it from the initialize since I had the method next to it, but is this practical and correct?
 end
