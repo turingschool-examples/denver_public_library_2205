@@ -16,7 +16,7 @@ RSpec.describe Book do
   end
 
   it 'returns book title' do
-    expect(@book.title).to eq("To Kill A Mockingbird")
+    expect(@book.title).to eq("To Kill a Mockingbird")
   end
 
 end
