@@ -22,10 +22,18 @@ RSpec.describe Author do
   end
 
   describe '#write' do
+    before :each do
+      @jane_eyre = @charlotte_bronte.write('Jane Eyre', 'October 16, 1847')
+      @villette = @charlotte_bronte.write("Villette", "1853")
+    end
+
     it 'can create a Book object' do
-      jane_eyre = @charlotte_bronte.write('Jane Eyre', 'October 16, 1847')
-      expect(jane_eyre).to be_a Book
-      expect(jane_eyre.title).to eq 'Jane Eyre'
+      expect(@jane_eyre).to be_a Book
+      expect(@jane_eyre.title).to eq 'Jane Eyre'
+    end
+
+    it 'returns an array of books if multiple are written' do
+      expect(@charlotte_bronte.books).to eq [@jane_eyre, @villette]
     end
   end
 
