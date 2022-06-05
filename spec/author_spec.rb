@@ -15,4 +15,8 @@ RSpec.describe Author do
     expect(@charlotte_bronte).to be_instance_of(Author)
   end
 
+  it 'returns full name' do
+    expect(@charlotte_bronte.name).to eq("Charlotte Bronte")
+  end
+
 end
