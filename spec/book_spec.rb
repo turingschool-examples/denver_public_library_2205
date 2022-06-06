@@ -20,4 +20,12 @@ RSpec.describe Book do
     expect(book.author_last_name).to eq("Lee")
     expect(book.title).to eq("To Kill a Mockingbird")
   end
+
+  it "can return an author's full name" do
+    data = {author_first_name: "Harper",
+                      author_last_name: "Lee", title: "To Kill a Mockingbird",
+                      publication_date: "July 11, 1960"}
+    book = Book.new(data)
+    expect(book.author).to eq("Harper Lee")
+  end
 end
