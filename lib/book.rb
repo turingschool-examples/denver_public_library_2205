@@ -8,13 +8,7 @@ class Book
     end
 
     def publication_year
-      @publication_date.gsub("July 11, 1960","1960")
+      @publication_date.split(//).last(4).join
     end
-
-
-
-
-
-
 
 end #----------------this is the end of the Class---------------

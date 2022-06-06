@@ -10,7 +10,6 @@ RSpec.describe Book do
         title: "Jane Eyre", publication_date: "October 16, 1847"})
       @villette = Book.new({author_first_name: "Charlotte", author_last_name: "Bronte",
         title: "Villette", publication_date: "1853"})
-
     end
 
     it 'exists' do
@@ -31,6 +30,5 @@ RSpec.describe Book do
     it 'has a publication year' do
       expect(@book.publication_year).to eq("1960")
     end
-
   end
 end #-------------------end of RSpec---------------------
