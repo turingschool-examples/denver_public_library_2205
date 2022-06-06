@@ -23,7 +23,7 @@ RSpec.describe Author do
     expect(jane_eyre.title).to eq("Jane Eyre")
   end
 
-  it 'author can write multiple books' do
+  xit 'author can write multiple books' do
     charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
     jane_eyre = charlotte_bronte.write("Jane Eyre", "October 16, 1847")
     villette = charlotte_bronte.write("Villette", "1853")
