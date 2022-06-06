@@ -23,7 +23,6 @@ before :each do
 
   it "can add books to the books array attribute" do
     @jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
-    # require 'pry';binding.pry
     expect(@jane_eyre).to be_a(Book)
     expect(@jane_eyre.title).to eq("Jane Eyre")
     expect(@charlotte_bronte.books).to eq([@jane_eyre])
