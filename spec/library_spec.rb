@@ -56,11 +56,11 @@ before :each do
     expect(@dpl.publication_time_frame_for(harper_lee)).to eq({:start=>"1960", :end=>"1960"})
   end
 
-  it "has checkout method" do
+  xit "has checkout method" do
 
     charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
 
-    professor = charlotte_bronte.write("The Professor", "1857")
+    jane_eyre = charlotte_bronte.write("Jane Eyre", "October 16, 1847")
 
     villette = charlotte_bronte.write("Villette", "1853")
 

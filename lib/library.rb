@@ -7,6 +7,7 @@ attr_reader :name,
     @name = name
     @authors = []
     @books = []
+    @checked_out_books = []
   end
 
   def add_author(author)
@@ -26,4 +27,14 @@ attr_reader :name,
     }
   end
 
+  def checkout(book)
+    if @books.include?(book) && @checked_out_books.include?(book) == false
+      @checked_out_books << book
+      return true
+    elsif @books.include?(book) && @checked_out_books.include?(book) == true
+      false #because book has already been checked out
+    elsif @books.include?(book) == false
+      false
+    end
+  end
 end
