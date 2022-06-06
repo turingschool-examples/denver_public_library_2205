@@ -2,8 +2,7 @@ require './lib/book'
 
 RSpec.describe Book do
   it 'exists' do
-    book = Book.new
-    ({
+    book = Book.new({
       author_first_name: "Harper",
       author_last_name: "Lee",
       title: "To Kill a Mockingbird",
@@ -14,8 +13,7 @@ RSpec.describe Book do
   end
 
   it 'has attributes' do
-    book = Book.new
-    ({
+    book = Book.new({
       author_first_name: "Harper",
       author_last_name: "Lee",
       title: "To Kill a Mockingbird",
