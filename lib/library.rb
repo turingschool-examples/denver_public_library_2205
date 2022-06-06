@@ -1,8 +1,10 @@
 require 'helper'
 
 class Library
+  attr_reader :name
 
-  def initialize(this)
-    @this = this
+  def initialize(name)
+    @name = name
   end
+
 end
