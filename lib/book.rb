@@ -1,7 +1,10 @@
 require 'helper'
 
 class Book
-  attr_reader
+  attr_reader :author_first_name,
+              :author_last_name,
+              :title,
+              :publication_date
 
   attr_accessor
 
