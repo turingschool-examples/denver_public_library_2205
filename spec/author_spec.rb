@@ -10,12 +10,11 @@ RSpec.describe Author do
 
     it 'exists' do
       expect(@charlotte_bronte).to be_a(Author)
-      expect(@jane_eyre).to be_a(Author)
     end
 
     it 'has attributes' do
-      expect(@class.name).to eq("Charlotte Bronte")
-      expect(@class.books).to eq([])
+      expect(@charlotte_bronte.name).to eq("Charlotte Bronte")
+      expect(@charlotte_bronte.books).to eq([])
     end
 
     it "can write a book" do
