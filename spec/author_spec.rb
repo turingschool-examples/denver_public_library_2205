@@ -2,8 +2,6 @@ require './lib/helper'
 
 RSpec.describe Author do
   let!(:charlotte_bronte) {Author.new({first_name: "Charlotte", last_name: "Bronte"})}
-  # let(:jane_eyre) {charlotte_bronte.write("Jane Eyre", "October 16, 1847")}
-
 
   it "exists" do
     expect(charlotte_bronte).to be_instance_of Author
