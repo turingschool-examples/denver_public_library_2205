@@ -14,8 +14,7 @@ attr_reader :title,
   end
 
   def publication_year
-    x = @publication_date
-    x[-4..-1]
+    @publication_date[-4..-1]
   end
 
 end
