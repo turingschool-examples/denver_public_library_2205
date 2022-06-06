@@ -8,3 +8,4 @@ RSpec.describe Book do
 
     expect(book).to be_instance_of(Book)
   end
+end
