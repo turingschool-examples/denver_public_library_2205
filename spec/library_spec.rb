@@ -20,4 +20,19 @@ RSpec.describe Library do
       expect(@dpl.name).to eq("Denver Public Library")
 
     end
+    it "has array of authors and books" do
+
+      expect(@dpl.authors).to eq([])
+      expect(@dpl.books).to eq([])
+      @dpl.add_book(@jane_eyre)
+      @dpl.add_book(@professor)
+      @dpl.add_book(@villette)
+      @dpl.add_book(@mockingbird)
+
+      @dpl.add_author(@charlotte_bronte)
+      @dpl.add_author(@harper_lee)
+
+      expect(@dpl.authors).to eq([@charlotte_bronte, @harper_lee])
+      expect(@dpl.books).to eq([@jane_eyre, @professor, @villette, @mockingbird])
+    end
 end
