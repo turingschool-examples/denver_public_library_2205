@@ -22,8 +22,6 @@ RSpec.describe Author do
   it "can return and array of books" do
     jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
     villette = @charlotte_bronte.write("Villette", "1853")
-    @charlotte_bronte.add_books(jane_eyre)
-    @charlotte_bronte.add_books(villette)
     expect(@charlotte_bronte.books).to eq [jane_eyre, villette]
   end
 end
