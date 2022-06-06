@@ -14,7 +14,6 @@ attr_reader :author_last_name,
 
   def publication_year
     last_4_digits = @publication_date[-4..-1]
-    require "pry"; binding.pry
     last_4_digits
   end
 end
