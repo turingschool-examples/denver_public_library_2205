@@ -19,7 +19,5 @@ class Author
       publication_date: publication_date})
     @books << new_book
     new_book
-
   end
-
 end
