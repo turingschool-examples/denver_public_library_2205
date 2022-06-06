@@ -56,4 +56,25 @@ before :each do
     expect(@dpl.publication_time_frame_for(harper_lee)).to eq({:start=>"1960", :end=>"1960"})
   end
 
+  it "has checkout method" do
+
+    charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
+
+    professor = charlotte_bronte.write("The Professor", "1857")
+
+    villette = charlotte_bronte.write("Villette", "1853")
+
+    harper_lee = Author.new({first_name: "Harper", last_name: "Lee"})
+
+    mockingbird = harper_lee.write("To Kill a Mockingbird", "July 11, 1960")
+
+    expect(@dpl.checkout(jane_eyre)).to eq(false)
+
+    @dpl.add_author(charlotte_bronte)
+
+    @dpl.add_author(harper_lee)
+
+    expect(@dpl.checkout(jane_eyre)).to eq(true)
+  end
+
 end
