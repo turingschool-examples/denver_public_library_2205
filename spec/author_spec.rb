@@ -9,4 +9,9 @@ RSpec.describe Author do
   it 'has an instance of an author' do
     expect(@charlotte_bronte).to be_a(Author)
   end
+
+  it 'returns the authors name' do
+    expect(@charlotte_bronte.name).to eq("Charlotte Bronte")
+  end
+
 end

@@ -15,5 +15,5 @@ class Book
 
   def publication_year
     @publication_date[-4..-1]
-  end  
+  end
 end
