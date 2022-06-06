@@ -12,4 +12,10 @@ attr_reader :title,
     @publication_date = details[:publication_date]
     @author = "#{details[:author_first_name]} " + "#{details[:author_last_name]}"
   end
+
+  def publication_year
+    x = @publication_date
+    x[-4..-1]
+  end
+
 end
