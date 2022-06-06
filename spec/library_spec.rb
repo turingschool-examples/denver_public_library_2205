@@ -10,4 +10,8 @@ RSpec.describe Library do
   it 'has an instance of a library' do
     expect(@dpl).to be_a(Library)
   end
+
+  it 'has a name' do
+    expect(@dpl.name).to eq("Denver Public Library")
+  end
 end

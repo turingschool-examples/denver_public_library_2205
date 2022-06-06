@@ -1,8 +1,8 @@
 class Library
-  attr_reader :library
+  attr_reader :name
 
-  def initialize(library)
-    @library = library
-  end  
+  def initialize(name)
+    @name = name
+  end
 
 end
