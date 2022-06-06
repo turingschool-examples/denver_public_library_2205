@@ -14,4 +14,8 @@ RSpec.describe Library do
   it "has books" do
     expect(dpl.books).to eq([])
   end
+
+  it "has authors" do
+    expect(dpl.authors).to eq([])
+  end
 end
