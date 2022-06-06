@@ -18,4 +18,12 @@ class Library
     @books << book
   end
 
+  def publication_time_frame_for(author)
+    years = (author.books.map {|book| book.publication_year.to_i}).sort
+    {
+      start: years.first.to_s,
+      end: years.last.to_s
+    }
+  end
+
 end
