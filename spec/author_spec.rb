@@ -32,5 +32,6 @@ RSpec.describe Author do
       expect(charlotte_bronte.books.length).to eq(1)
       villette = charlotte_bronte.write("Villette", "1853")
       expect(charlotte_bronte.books.length).to eq(2)
+      require "pry"; binding.pry
     end
 end
