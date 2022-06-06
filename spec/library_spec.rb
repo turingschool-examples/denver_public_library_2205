@@ -32,9 +32,9 @@ RSpec.describe Library do
     mockingbird = harper_lee.write("To Kill a Mockingbird", "July 11, 1960")
     @dpl.add_author(charlotte_bronte)
     @dpl.add_author(harper_lee)
-
+    # require 'pry' ; binding.pry
     expect(@dpl.authors.count).to eq(2)
-    expect(@dpl.books.count).to eq(4)
+    expect(@dpl.books.flatten.count).to eq(4)
   end
 
   it "returns publications within the given time range" do
