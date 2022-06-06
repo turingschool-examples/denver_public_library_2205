@@ -1,5 +1,5 @@
 require 'rspec'
-require './lib/class'
+require './lib/book'
 require './lib/author'
 
 RSpec.describe Author do
