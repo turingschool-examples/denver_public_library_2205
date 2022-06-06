@@ -8,6 +8,15 @@ class Author
    @books = []
  end
 
+ def write(title, publication_date)
+
+   book = Book.new
+ end
+
+
 
 
 end
+
+#Kind of stumped on write method.
+#ran out of time
