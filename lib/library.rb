@@ -23,4 +23,12 @@ class Library
       :end => publication_times.last
     }
   end
+
+  def checkout(book)
+    if @books.include?(book) && book.checked_out = false
+      return true
+    else
+      
+    end
+  end
 end
