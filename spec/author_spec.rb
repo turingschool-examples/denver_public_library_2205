@@ -18,6 +18,7 @@ before :each do
   it "has details" do
     expect(@charlotte_bronte.first_name).to eq("Charlotte")
     expect(@charlotte_bronte.last_name).to eq("Bronte")
+    expect(@charlotte_bronte.books).to eq([])
   end
 
 end
