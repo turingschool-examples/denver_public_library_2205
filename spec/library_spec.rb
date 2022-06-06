@@ -14,4 +14,8 @@ RSpec.describe Library do
   it 'has a name' do
     expect(@dpl.name).to eq("Denver Public Library")
   end
+
+  it 'returns an empty array of books' do
+    expect(@dpl.books).to eq([])
+  end
 end
