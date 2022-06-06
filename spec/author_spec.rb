@@ -1,4 +1,3 @@
-
 require './lib/book'
 require './lib/author'
 
@@ -9,7 +8,7 @@ RSpec.describe Author do
   end
 
   it 'exists' do
-    expect(@charlotte_bronte).to be_a(Book)
+    expect(@charlotte_bronte).to be_a(Author)
   end
 
   it 'has a name' do
@@ -19,9 +18,9 @@ RSpec.describe Author do
   it 'has books' do
     expect(@charlotte_bronte.books).to eq([])
     jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
-    expect(jane_eyre.class).to be(Book)
+    expect(jane_eyre.class).to eq(Book)
     expect(jane_eyre.title).to eq("Jane Eyre")
-    villette = charlotte_bronte.write("Villette", "1853")
-    expect(charlotte_bronte.books).to eq([jane_eyre, villette])
+    villette = @charlotte_bronte.write("Villette", "1853")
+    expect(@charlotte_bronte.books).to eq([jane_eyre, villette])
   end
 end
