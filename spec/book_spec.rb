@@ -8,6 +8,9 @@ RSpec.describe Book do
     title: "To Kill a Mockingbird",
     publication_date: "July 11, 1960"})
   end
+  it 'exists' do
+    expect(@book).to be_a(Book)
+  end
 
   it 'has a title' do
     expect(@book.title).to eq("To Kill a Mockingbird")
