@@ -1,7 +1,7 @@
 require 'rspec'
-require './lib/class'
+require './lib/book'
 
-RSpec.describe Class do
+RSpec.describe Book do
   describe 'Iteration 1' do
     before :each do
       @book = Book.new({author_first_name: "Harper", author_last_name: "Lee", title: "To Kill a Mockingbird", publication_date: "July 11, 1960"})
