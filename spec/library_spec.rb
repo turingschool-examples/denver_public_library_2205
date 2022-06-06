@@ -18,4 +18,7 @@ RSpec.describe Library do
   it 'returns an empty array of books' do
     expect(@dpl.books).to eq([])
   end
+  it 'returns an empty array of authors' do
+    expect(@dpl.authors).to eq([])
+  end
 end
