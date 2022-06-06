@@ -14,4 +14,8 @@ RSpec.describe Author do
     expect(@charlotte_bronte.name).to eq("Charlotte Bronte")
   end
 
+  it 'returns books by the author' do
+    expect(@charlotte_bronte.books).to eq([])
+  end
+
 end
