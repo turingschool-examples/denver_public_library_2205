@@ -16,17 +16,21 @@ class Library
 
   def add_authors_books
     @authors.last.books.each {|book| @books << book}
-    #   author.books.each do |book|
-    #     @books << book
-    #   end
-    # end
   end
 
   def publication_time_frame_for(author_name)
-    pull_author = @authors.select do |author|
-      author.name == author_name
-    end
-    pull_author.books.select {|book| book.publication_date.to_i}.minmax
-    require "pry"; binding.pry
+    pull_author = @authors.find {|author| author == author_name}
+    get_date_range(pull_author)
+  end
+
+  def get_date_range(author_pulled)
+    dates = []
+    author_pulled.books.each {|book| dates << book.publication_year}
+    assess_date_range(dates)
+  end
+
+  def assess_date_range(dates)
+    years = dates.minmax
+    {:end => years.max, :start => years.min}
   end
 end
