@@ -9,4 +9,10 @@ attr_reader :name,
     @books = []
   end
 
+  def add_author(author)
+    @authors << author
+    @books << author.books
+    @books
+  end
+
 end
