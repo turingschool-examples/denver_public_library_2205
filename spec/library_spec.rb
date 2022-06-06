@@ -48,4 +48,18 @@ RSpec.describe Library do
     expect(dpl.publication_time_frame_for(charlotte_bronte)).to eq({:start=>"1847", :end=>"1857"})
     expect(dpl.publication_time_frame_for(harper_lee)).to eq({:start=>"1960", :end=>"1960"})
   end
+
+  it "can return true/false if a book doesn't exist or has been checked out or not" do
+    jane_eyre = charlotte_bronte.write("Jane Eyre", "October 16, 1847")
+    villette = charlotte_bronte.write("Villette", "1853")
+    mockingbird = harper_lee.write("To Kill a Mockingbird", "July 11, 1960")
+
+    expect(dpl.checkout(mockingbird)).to eq(false)
+    expect(dpl.checkout(jane_eyre)).to eq(false)
+
+    dpl.add_author(charlotte_bronte)
+    dpl.add_author(harper_lee)
+
+    expect(dpl.checkout(jane_eyre)).to eq(true)
+  end
 end
