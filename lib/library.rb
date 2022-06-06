@@ -15,4 +15,12 @@ class Library
       @books << book
     end
   end
+
+  def publication_time_frame_for(author)
+    publication_times = author.books.map { |book| book.publication_year }.sort!
+    {
+      :start => publication_times.first,
+      :end => publication_times.last
+    }
+  end
 end
