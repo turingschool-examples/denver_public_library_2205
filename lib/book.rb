@@ -14,7 +14,11 @@ class Book
   end
 
   def publication_year
-    publication_array = @publication_date.split
-    year = publication_array[2]
+    if @publication_date.length == 4
+      @publication_date
+    else
+      publication_array = @publication_date.split
+      publication_array[2]
+    end
   end
 end
