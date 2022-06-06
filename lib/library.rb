@@ -1,8 +1,11 @@
-class Class
-  attr_reader :,
-              :
+class Library
+  attr_reader :name,
+              :books,
+              :authors
 
-  def initialize(argument)
-    @argument = argument
+  def initialize(name)
+    @name = name
+    @books = []
+    @authors = []
   end
 end
