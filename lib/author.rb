@@ -17,7 +17,8 @@ class Author
       author_last_name: @last_name,
       title: title,
       publication_date: publication_date})
-      
+    @books << new_book
+    new_book
 
   end
 

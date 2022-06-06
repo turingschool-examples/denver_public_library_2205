@@ -14,7 +14,7 @@ RSpec.describe Author do
     expect(@charlotte_bronte.name).to eq("Charlotte Bronte")
   end
 
-  it 'returns books by the author' do
+  it 'returns an empty array if no books are written' do
     expect(@charlotte_bronte.books).to eq([])
   end
 
@@ -25,12 +25,12 @@ RSpec.describe Author do
     expect(@jane_eyre.title).to eq("Jane Eyre")
   end
 
-  it 'returns an array of author books' do
+  it 'returns an array of author books written' do
     @jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
     @villette = @charlotte_bronte.write("Villette", "1853")
 
-    expect(@books.length).to eq(2)
-    expect(@charlotte_bronte.books).to eq[@jane_eyre, @villette]
+    expect(@charlotte_bronte.books).to eq([@jane_eyre, @villette])
+    expect(@charlotte_bronte.books.length).to eq(2)
   end
 
 end
